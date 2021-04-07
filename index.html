@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор индекса массы тела</title>
+</head>
+
+<style>
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: serif;
+    text-align: center;
+    background-image: linear-gradient(120deg, #ff6b6b, #5f27cd);
+    min-height: 100vh;
+  }
+
+  div {
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 20px #ee5253;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .text {
+    text-align: left;
+    margin-left: 150px;
+  }
+
+  #weight,
+  #height {
+    color: #222f3e;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 200;
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: 1px solid #341f97;
+    width: 200px;
+  }
+
+  #weight:focus,
+  #height:focus {
+    border-bottom: 2px solid#341f97;
+    width: 300px;
+    transition: .5s;
+  }
+
+  #result {
+    color: #341f97;
+  }
+
+  #btn {
+    font-family: inherit;
+    margin-top: 10px;
+    border: none;
+    color: #fff;
+    background-image: linear-gradient(120deg, #ff6b6b, #5f27cd);
+    width: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  #btn:hover {
+    box-shadow: 1px 1px 10px #341f97;
+  }
+
+  #info {
+    font-size: 12px;
+    font-family: inherit;
+  }
+</style>
+
+<body>
+
+  <div>
+    <h2>Калькулятор индекса массы тела</h2>
+    <p class="text">Рост</p>
+    <input type="text" id="height">
+    <p class="text">Вес</p>
+    <input type="text" id="weight">
+    <p id="result"></p>
+    <button id="btn" onclick="bmi()">Посчитать</button>
+    <p id="info">Введите свой рост [Cм] и вес [Кг]</p>
+  </div>
+
+  <script>
+    const bmi = () => {
+      let height = document.getElementById('height').value;
+      let weight = document.getElementById('weight').value;
+
+      let bmi = weight / (height / 100 * height / 100);
+      let bmio = (bmi.toFixed(2));
+
+      document.getElementById('result').innerHTML = 'Ваш индекс массы тела ' + bmio;
+    }
+  </script>
+</body>
+
+</html>
